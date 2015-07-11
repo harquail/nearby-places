@@ -44,6 +44,7 @@
 		F13A43EF1B51CEA100DE62A2 /* levelup-places-sampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "levelup-places-sampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13A43F41B51CEA100DE62A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F13A43F51B51CEA100DE62A2 /* levelup_places_sampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = levelup_places_sampleTests.m; sourceTree = "<group>"; };
+		F17032CE1B51D0CD00F5F29D /* ApiKeysAndSecrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiKeysAndSecrets.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +110,7 @@
 				F13A43DE1B51CEA100DE62A2 /* AppDelegate.m */,
 				F13A43E01B51CEA100DE62A2 /* ViewController.h */,
 				F13A43E11B51CEA100DE62A2 /* ViewController.m */,
+				F17032CE1B51D0CD00F5F29D /* ApiKeysAndSecrets.h */,
 				F13A43E31B51CEA100DE62A2 /* Main.storyboard */,
 				F13A43E61B51CEA100DE62A2 /* Images.xcassets */,
 				F13A43E81B51CEA100DE62A2 /* LaunchScreen.xib */,

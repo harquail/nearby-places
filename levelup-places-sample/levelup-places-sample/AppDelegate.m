@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ApiKeysAndSecrets.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // give google our API key
+    [GMSServices provideAPIKey:kGooglePlacesAPIKey];
     return YES;
 }
 
