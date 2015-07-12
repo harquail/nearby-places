@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PlacesTableViewController.h
 //  levelup-places-sample
 //
 //  Created by nook on 7/11/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface PlacesTableViewController : UITableViewController
 
 @end
-

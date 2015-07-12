@@ -22,7 +22,8 @@
     // Override point for customization after application launch.
     
     // give google places an API key
-    [GKQuery provideAPIKey:kGooglePlacesAPIKey];
+    [GKQuery provideAPIKey:@"AIzaSyDP0WIra_1OO7JnerloLBgMWwmr92_rQa4"];
+//    [GKQuery loggingEnabled:YES];
     
     return YES;
 }

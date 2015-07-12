@@ -10,12 +10,13 @@
 		61FB4A8C67FC57152805D5BA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48155D327DB6AE3F4A882789 /* libPods.a */; };
 		F13A43DC1B51CEA100DE62A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F13A43DB1B51CEA100DE62A2 /* main.m */; };
 		F13A43DF1B51CEA100DE62A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F13A43DE1B51CEA100DE62A2 /* AppDelegate.m */; };
-		F13A43E21B51CEA100DE62A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F13A43E11B51CEA100DE62A2 /* ViewController.m */; };
 		F13A43E51B51CEA100DE62A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13A43E31B51CEA100DE62A2 /* Main.storyboard */; };
 		F13A43E71B51CEA100DE62A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13A43E61B51CEA100DE62A2 /* Images.xcassets */; };
 		F13A43EA1B51CEA100DE62A2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13A43E81B51CEA100DE62A2 /* LaunchScreen.xib */; };
 		F13A43F61B51CEA100DE62A2 /* levelup_places_sampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F13A43F51B51CEA100DE62A2 /* levelup_places_sampleTests.m */; };
 		F17032D01B51FA5800F5F29D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17032CF1B51FA5800F5F29D /* CoreLocation.framework */; };
+		F17032D51B51FF9700F5F29D /* PlacesNearby.m in Sources */ = {isa = PBXBuildFile; fileRef = F17032D41B51FF9700F5F29D /* PlacesNearby.m */; };
+		F17032D81B5202B500F5F29D /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F17032D71B5202B500F5F29D /* PlacesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +38,6 @@
 		F13A43DB1B51CEA100DE62A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F13A43DD1B51CEA100DE62A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F13A43DE1B51CEA100DE62A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F13A43E01B51CEA100DE62A2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F13A43E11B51CEA100DE62A2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F13A43E41B51CEA100DE62A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F13A43E61B51CEA100DE62A2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F13A43E91B51CEA100DE62A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -47,6 +46,10 @@
 		F13A43F51B51CEA100DE62A2 /* levelup_places_sampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = levelup_places_sampleTests.m; sourceTree = "<group>"; };
 		F17032CE1B51D0CD00F5F29D /* ApiKeysAndSecrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiKeysAndSecrets.h; sourceTree = "<group>"; };
 		F17032CF1B51FA5800F5F29D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F17032D31B51FF9700F5F29D /* PlacesNearby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesNearby.h; sourceTree = "<group>"; };
+		F17032D41B51FF9700F5F29D /* PlacesNearby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesNearby.m; sourceTree = "<group>"; };
+		F17032D61B5202B500F5F29D /* PlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesTableViewController.h; sourceTree = "<group>"; };
+		F17032D71B5202B500F5F29D /* PlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +115,10 @@
 			children = (
 				F13A43DD1B51CEA100DE62A2 /* AppDelegate.h */,
 				F13A43DE1B51CEA100DE62A2 /* AppDelegate.m */,
-				F13A43E01B51CEA100DE62A2 /* ViewController.h */,
-				F13A43E11B51CEA100DE62A2 /* ViewController.m */,
+				F17032D31B51FF9700F5F29D /* PlacesNearby.h */,
+				F17032D41B51FF9700F5F29D /* PlacesNearby.m */,
+				F17032D61B5202B500F5F29D /* PlacesTableViewController.h */,
+				F17032D71B5202B500F5F29D /* PlacesTableViewController.m */,
 				F17032CE1B51D0CD00F5F29D /* ApiKeysAndSecrets.h */,
 				F13A43E31B51CEA100DE62A2 /* Main.storyboard */,
 				F13A43E61B51CEA100DE62A2 /* Images.xcassets */,
@@ -284,8 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F13A43E21B51CEA100DE62A2 /* ViewController.m in Sources */,
+				F17032D81B5202B500F5F29D /* PlacesTableViewController.m in Sources */,
 				F13A43DF1B51CEA100DE62A2 /* AppDelegate.m in Sources */,
+				F17032D51B51FF9700F5F29D /* PlacesNearby.m in Sources */,
 				F13A43DC1B51CEA100DE62A2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
