@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		61FB4A8C67FC57152805D5BA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48155D327DB6AE3F4A882789 /* libPods.a */; };
+		F1234CDE1B532405008E60AC /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = F1234CDD1B532405008E60AC /* placeholder.png */; };
 		F13A43DC1B51CEA100DE62A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F13A43DB1B51CEA100DE62A2 /* main.m */; };
 		F13A43DF1B51CEA100DE62A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F13A43DE1B51CEA100DE62A2 /* AppDelegate.m */; };
 		F13A43E51B51CEA100DE62A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13A43E31B51CEA100DE62A2 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		48155D327DB6AE3F4A882789 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDBD258020A9727087269282 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E4FBBD41903B58300CB6D0CB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F1234CDD1B532405008E60AC /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		F13A43D61B51CEA100DE62A2 /* levelup-places-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "levelup-places-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13A43DA1B51CEA100DE62A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F13A43DB1B51CEA100DE62A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				F13A43E31B51CEA100DE62A2 /* Main.storyboard */,
 				F13A43E61B51CEA100DE62A2 /* Images.xcassets */,
 				F13A43E81B51CEA100DE62A2 /* LaunchScreen.xib */,
+				F1234CDD1B532405008E60AC /* placeholder.png */,
 				F13A43D91B51CEA100DE62A2 /* Supporting Files */,
 			);
 			path = "levelup-places-sample";
@@ -238,6 +241,7 @@
 			files = (
 				F13A43E51B51CEA100DE62A2 /* Main.storyboard in Resources */,
 				F13A43EA1B51CEA100DE62A2 /* LaunchScreen.xib in Resources */,
+				F1234CDE1B532405008E60AC /* placeholder.png in Resources */,
 				F13A43E71B51CEA100DE62A2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <GoogleKit/GoogleKit.h>
 
+@protocol PlacesDelegate <NSObject>
+@optional
+-(void) placesUpdated;
+@end
+
 @interface PlacesNearby : UITableViewController <CLLocationManagerDelegate>
 - (void)trackLocation;
+- (void) fetchPlaces: (int) searchDistance;
+- (BOOL) hasNextPage;
++ (NSString *) googleURLForPhotoReference: (NSString * ) photoRef;
+
+@property (nonatomic, weak) id <PlacesDelegate> delegate;
+@property NSMutableArray * placesList;
 @end
+
