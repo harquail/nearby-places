@@ -17,8 +17,8 @@
 @interface PlacesNearby : UITableViewController <CLLocationManagerDelegate>
 - (void)trackLocation;
 - (void) fetchPlaces: (int) searchDistance;
-- (BOOL) hasNextPage;
 + (NSString *) googleURLForPhotoReference: (NSString * ) photoRef;
+- (BOOL) hasNextPage;
 
 @property (nonatomic, weak) id <PlacesDelegate> delegate;
 @property NSMutableArray * placesList;

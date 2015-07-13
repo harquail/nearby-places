@@ -18,13 +18,9 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
-    // give google places an API key
-    [GKQuery provideAPIKey:@"AIzaSyDP0WIra_1OO7JnerloLBgMWwmr92_rQa4"];
-//    [GKQuery loggingEnabled:YES];
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+    // give Google Places an API key
+    [GKQuery provideAPIKey:kGooglePlacesAPIKey];
     return YES;
 }
 

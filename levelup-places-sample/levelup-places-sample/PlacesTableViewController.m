@@ -12,25 +12,18 @@
 
 @interface PlacesTableViewController () <UITableViewDataSource,UITableViewDelegate,PlacesDelegate>
 
+// list of places
 @property PlacesNearby * places;
 
 @end
 
 @implementation PlacesTableViewController
 
-
 - (void)viewDidLoad{
     _places = [[PlacesNearby alloc] init];
     _places.delegate = self;
+    // on load, fetch places
     [_places trackLocation];
-}
-
--(void) placesUpdated{
-    
-    //    NSLog(@"places: %@",_places.placesList);
-    
-    [self.tableView reloadData];
-    NSLog(@"UPDATED PLACES");
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -38,58 +31,34 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"%i",_places.placesList.count);
     return _places.placesList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
+    // recycle a cell if we have a spare one
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlaceCell"];
     
+    // otherwise, make a new cell
     if (cell == nil) {
-        
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PlaceCell"];
-        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
     }
     
+    // places fetched earlier
     GKPlace * place = ((GKPlace *)[_places.placesList objectAtIndex:indexPath.row]);
     
     cell.textLabel.text = place.name;
     
+    // set photo — if place has a photo provided by Google Places, use that.  Otherwise, use the place icon
     NSString * photoRef = place.photoReference;
     NSString * photoURL = (photoRef) ? [PlacesNearby googleURLForPhotoReference:photoRef] : place.icon;
     
+    // load images asynchronously
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:photoURL]
-        placeholderImage:[UIImage imageNamed:@"placeholder"]
-        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            
-
-//            BOOL cellIsVisible = [[self.tableView indexPathsForVisibleRows] indexOfObject:indexPath] != NSNotFound;
-
-            
-//            if (cellIsVisible) {
-//                
-//                // Set our rows background dependent upon its positions
-//                UIImage *rowBackground = nil;
-//                UIImage *selectionBackground = nil;
-//                
-//                /* Logic to assign your backgroundView and selectedBackgroundView here */
-//                
-//                ((UIImageView *)cell.backgroundView).image = rowBackground;
-//                ((UIImageView *)cell.selectedBackgroundView).image = selectionBackground;
-//                
-//                
-//                [cell.imageView setImage:image];
-////                [cell.imageView setNeedsDisplay];
-//            }
-            
-//            [cell.backgroundView setNeedsDisplay];
-        }
+                      placeholderImage:[UIImage imageNamed:@"placeholder"]
      ];
     
+    // load more places when the user scrolls to the bottom
     if (indexPath.row == [_places.placesList count] - 1 && _places.hasNextPage)
     {
         [_places fetchPlaces:5000];
@@ -98,8 +67,13 @@
     return cell;
 }
 
+-(void) placesUpdated{
+    [self.tableView reloadData];
+}
 
-
-
+// hide the status bar
+- (BOOL) prefersStatusBarHidden{
+    return YES;
+}
 
 @end

@@ -16,8 +16,6 @@
 
 @end
 
-
-
 @implementation PlacesNearby
 
 - (instancetype)init
@@ -25,6 +23,7 @@
     self = [super init];
     if (self) {
         _placesList = [[NSMutableArray alloc] init];
+        _nextPage = @"firstPage";
     }
     return self;
 }
@@ -35,87 +34,59 @@
     _locationMgr.distanceFilter = kCLDistanceFilterNone;
     _locationMgr.desiredAccuracy = kCLLocationAccuracyBest;
     
+    // ask user for permission to track location while in the app
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
         [_locationMgr requestWhenInUseAuthorization];
     
     [_locationMgr startUpdatingLocation];
-    
 }
 
 - (void) fetchPlaces: (int) searchDistance{
     
+    // find places open now within search distance
     GKPlacesNearbySearchQuery *query = [GKPlacesNearbySearchQuery query];
-
-    
-    // required parameters
-//    query.key = @"key";
     query.coordinate = _locationMgr.location.coordinate;
-    query.rankByDistance = YES; // if rankByDistance sets to YES radius will be ignored
     query.radius = (unsigned long) searchDistance;
-    // optional parameters
     query.language = @"en";
     query.opennow = TRUE;
     
-    if(_nextPage){
+    // will query the next page of results if it exists
+    if(_nextPage && ![_nextPage  isEqual: @"firstPage"]){
         query.nextPageToken = _nextPage;
     }
-
+    
     [query searchPlaces:^(NSArray *results, NSString *nextPageToken, NSError *error) {
         
-        _nextPage = nextPageToken;
-
+        // bail on error
         if (error != nil){
-            NSLog(@"%@",error);
-//            sleep(4);
-            [self fetchPlaces: searchDistance];
+            NSLog(@"query error: %@",error);
             return;
         }
-//
-        NSLog(@"next page: %@",_nextPage);
-
+        
+        _nextPage = nextPageToken;
         [_placesList addObjectsFromArray:results];
         
-        for (GKPlace * place in _placesList) {
-            NSLog(@"%@",place.name);
-            NSLog(@"%@",place.photoReference);
-        }
-        
-        
+        // notify the delegate that places were updated
         [_delegate placesUpdated];
-//        for (GKPlace * place in results){
-//            NSLog(@"place: %@",place.name);
-//        }
-//        NSLog(@"next page: %@",_nextPage);
-//        NSLog(@"next page letter count: %lu",(unsigned long)_nextPage.length);
-
-//        // this will happen at most 3 times, because google places limits requests to returning 60 results, with 20 results per page
-        if(_nextPage.length > 0 && [results count] != 0){
-//            sleep(2);
-//            [self fetchPlaces: searchDistance];
-        }
     }];
-    
 }
 
-
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    NSLog(@"location updated");
-    
-    NSLog(@"%@",locations.firstObject);
+    // once we have a location, stop updating locations to save battery
     [_locationMgr stopUpdatingLocation];
     
+    // fetch places nearby
     // 50,000 is the max search distance allowed
     [self fetchPlaces: 50000];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"FAILED");
-    // ...
+    NSLog(@"location manager error: %@",error);
 }
 
 - (BOOL) hasNextPage{
-    return _nextPage != nil;
+    return _nextPage != nil && ![_nextPage  isEqual: @"firstPage"];
 }
 
 + (NSString *) googleURLForPhotoReference: (NSString * ) photoRef{
