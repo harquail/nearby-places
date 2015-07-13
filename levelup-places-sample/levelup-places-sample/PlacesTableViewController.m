@@ -32,7 +32,7 @@
     [_places trackLocation];
 }
 
-#pragma mark - UITableView Delegate Methods
+#pragma mark - UITableView delegate methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -74,7 +74,7 @@
     return cell;
 }
 
-#pragma mark - Places Delegate Methods
+#pragma mark - Places delegate methods
 
 -(void) placesUpdated{
     [self.tableView reloadData];

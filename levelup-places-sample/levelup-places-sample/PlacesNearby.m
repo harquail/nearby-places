@@ -28,7 +28,7 @@
     return self;
 }
 
-# pragma mark - CLLocationManager Delegate Methods
+# pragma mark - CLLocationManager delegate methods
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     // once we have a location, stop updating locations to save battery
