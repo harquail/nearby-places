@@ -28,7 +28,7 @@
 - (void)viewDidLoad{
     _places = [[PlacesNearby alloc] init];
     _places.delegate = self;
-    // on load, fetch places
+    // on load, start tracking location and fetch places
     [_places trackLocation];
 }
 
