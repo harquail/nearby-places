@@ -35,8 +35,7 @@
     [_locationMgr stopUpdatingLocation];
     
     // fetch places nearby
-    // 50,000 is the max search distance allowed
-    [self fetchPlaces: 50000];
+    [self fetchPlaces: kPlacesSearchDistance];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error

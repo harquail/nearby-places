@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleKit/GoogleKit.h>
+// 50,000 is the max search distance allowed
+#define kPlacesSearchDistance 50000
 
 @protocol PlacesDelegate <NSObject>
 @optional

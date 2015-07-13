@@ -68,7 +68,7 @@
     // load more places when the user scrolls to the bottom
     if (indexPath.row == [_places.placesList count] - 1 && _places.hasNextPage)
     {
-        [_places fetchPlaces:5000];
+        [_places fetchPlaces:kPlacesSearchDistance];
     }
     
     return cell;
