@@ -13,3 +13,8 @@ Load the next page of results when the user scrolls to the bottom of the list.
 The focus of the project should be on producing clean, professional-quality code and demonstrating familiarity with the platform APIs and best practices.
 
 *If you use any libraries please include a quick note with your email explaining why you used them.* 
+
+## Cocoapods used
+
+* GoogleKit (DanielyBotelho's branch): wrapper for Google Places API; makes it easier to fetch places and place photos 
+* SDWebImage: asyncronously load images

@@ -28,6 +28,24 @@
     return self;
 }
 
+# pragma mark - CLLocationManager Delegate Methods
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    // once we have a location, stop updating locations to save battery
+    [_locationMgr stopUpdatingLocation];
+    
+    // fetch places nearby
+    // 50,000 is the max search distance allowed
+    [self fetchPlaces: 50000];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"location manager error: %@",error);
+}
+
+# pragma mark - public instance methods
+
 - (void)trackLocation {
     _locationMgr = [[CLLocationManager alloc] init];
     _locationMgr.delegate = self;
@@ -71,27 +89,16 @@
     }];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    // once we have a location, stop updating locations to save battery
-    [_locationMgr stopUpdatingLocation];
-    
-    // fetch places nearby
-    // 50,000 is the max search distance allowed
-    [self fetchPlaces: 50000];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"location manager error: %@",error);
-}
-
 - (BOOL) hasNextPage{
     return _nextPage != nil && ![_nextPage  isEqual: @"firstPage"];
 }
 
+# pragma mark - public class methods
+
 + (NSString *) googleURLForPhotoReference: (NSString * ) photoRef{
     return [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&maxheight=200&photoreference=%@&key=%@",photoRef,kGooglePlacesAPIKey];
 }
+
 
 
 @end

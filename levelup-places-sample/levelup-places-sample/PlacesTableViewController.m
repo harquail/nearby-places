@@ -19,12 +19,20 @@
 
 @implementation PlacesTableViewController
 
+
+// hide the status bar
+- (BOOL) prefersStatusBarHidden{
+    return YES;
+}
+
 - (void)viewDidLoad{
     _places = [[PlacesNearby alloc] init];
     _places.delegate = self;
     // on load, fetch places
     [_places trackLocation];
 }
+
+#pragma mark - UITableView Delegate Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -44,7 +52,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    // places fetched earlier
+    // places fetched as a result of trackLocation
     GKPlace * place = ((GKPlace *)[_places.placesList objectAtIndex:indexPath.row]);
     
     cell.textLabel.text = place.name;
@@ -55,8 +63,7 @@
     
     // load images asynchronously
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:photoURL]
-                      placeholderImage:[UIImage imageNamed:@"placeholder"]
-     ];
+                    placeholderImage:[UIImage imageNamed:@"placeholder"]];
     
     // load more places when the user scrolls to the bottom
     if (indexPath.row == [_places.placesList count] - 1 && _places.hasNextPage)
@@ -67,13 +74,11 @@
     return cell;
 }
 
+#pragma mark - Places Delegate Methods
+
 -(void) placesUpdated{
     [self.tableView reloadData];
 }
 
-// hide the status bar
-- (BOOL) prefersStatusBarHidden{
-    return YES;
-}
 
 @end
