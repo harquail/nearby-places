@@ -35,7 +35,7 @@
     [_locationMgr stopUpdatingLocation];
     
     // fetch places nearby
-    [self fetchPlaces: kPlacesSearchDistance];
+    [self fetchPlaces];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -58,12 +58,12 @@
     [_locationMgr startUpdatingLocation];
 }
 
-- (void) fetchPlaces: (int) searchDistance{
+- (void) fetchPlaces{
     
     // find places open now within search distance
     GKPlacesNearbySearchQuery *query = [GKPlacesNearbySearchQuery query];
     query.coordinate = _locationMgr.location.coordinate;
-    query.radius = (unsigned long) searchDistance;
+    query.radius = (unsigned long) kPlacesSearchDistance;
     query.language = @"en";
     query.opennow = TRUE;
     

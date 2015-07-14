@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleKit/GoogleKit.h>
-// 50,000 is the max search distance allowed
+// 50,000 meters is the max search distance allowed by Google Places
 #define kPlacesSearchDistance 50000
 
 @protocol PlacesDelegate <NSObject>
@@ -25,9 +25,8 @@
 
 /**
  Fetches nearby places from Google Places — stores places into placesList
- @param searchDistance the search radius for places, in meters
  */
-- (void) fetchPlaces: (int) searchDistance;
+- (void) fetchPlaces;
 
 /**
  Constructs the API url for a photo reference
