@@ -1,20 +1,18 @@
-#Sample Project Details
+#Nearby Places
 
-##Objective: Build a simple location-aware iOS app that pulls data from an HTTP API.
- 
-Using the Google Places API (https://developers.google.com/places/documentation/) build an app that provides the following functionality:
- 
-Present a list of places near the user using the Places API.
+[Demo Video](https://youtu.be/3j6ggXrnIUM)
 
-The app should also do one of the following things (bonus for both):
-Show images for the places in line.
-Load the next page of results when the user scrolls to the bottom of the list. 
+##a simple location-aware iOS app that shows points of interest nearby
  
-The focus of the project should be on producing clean, professional-quality code and demonstrating familiarity with the platform APIs and best practices.
+Presents a list of places near the user using the Places API.
 
-*If you use any libraries please include a quick note with your email explaining why you used them.* 
+Shows preview images of places in-line, and loads more results when reaching the end of the list.
 
 ## Cocoapods used
 
 * GoogleKit (DanielyBotelho's branch): wrapper for Google Places API; makes it easier to fetch places and place photos 
 * SDWebImage: asyncronously load images
+
+## API Key
+
+This project requires an API key to connect to google places.  Get one [here](https://console.developers.google.com/) and copy it into the APIKeysAndSecrets.h file.
